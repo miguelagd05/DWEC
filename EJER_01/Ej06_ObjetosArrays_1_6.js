@@ -58,14 +58,28 @@ estudiantes : [
 
 ]
 
-console.log(cursos)
-
 /* 2. Utiliza `.map()` para crear un nuevo array `resumenCursos` que contenga objetos con:
 - `nombreCurso`
 - `promedioCalificaciones` (promedio de las calificaciones de los estudiantes)
 */
 
+const resumenCursos = cursos.map(curso => {
+    const suma = curso.estudiantes.reduce((total,estudiante) => total + estudiante.calificacion,0
+    )
+
+const promedio = suma / curso.estudiantes.length
+
+return {
+    nombreCurso: curso.nombre,
+    promedioCalificaciones: promedio
+
+}
+})
+
+
 // 3. Utiliza `.filter()` para obtener un array `cursosDestacados` que contenga solo los cursos cuyo promedio de calificaciones sea mayor o igual a 7.
+
+const cursosDestacados = resumenCursos.filter(curso => curso.promedioCalificaciones >= 7 )
 
 /* 4. Recorre los cursos destacados e imprime en consola un mensaje como:
 
@@ -73,8 +87,25 @@ console.log(cursos)
 
 */
 
+cursosDestacados.forEach(curso => {
+    console.log(`📘 El curso ${curso.nombreCurso} tiene un promedio de ${curso.promedioCalificaciones} y es considerado destacado.`)
+})
+
 /* 5. Verifica si hay algún estudiante con calificación menor a 4 en cada curso. Si lo hay, imprime:
 
 `"⚠️ Atención: En el curso [nombreCurso] hay estudiantes con calificaciones muy bajas."`
 
 */
+
+cursosDestacados.forEach(curso => {
+
+    const hayNotasBajas = curso.estudiantes.some(
+        estudiante => estudiante.calificacion < 4
+    )
+
+    if(hayNotasBajas){
+        console.log(
+            `⚠️ Atención: En el curso ${curso.nombreCurso} hay estudiantes con calificaciones muy bajas."
+        )
+    }
+})
