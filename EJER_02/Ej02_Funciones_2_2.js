@@ -28,7 +28,7 @@ const areaTrianguloArrow = calcularAreaTriangulo(9,6)
 
 //4. Añade valores por defecto a los parámetros de cualquiera de las funciones anteriores.
 
-const calcularAreaTrianguloDefecto = function(base = 6,altura =  7) {
+const calcularAreaTrianguloDefecto = function(base = 6, altura =  7) {
     return (base * altura) / 2
 }
 
