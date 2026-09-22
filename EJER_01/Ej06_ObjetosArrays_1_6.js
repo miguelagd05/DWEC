@@ -97,15 +97,13 @@ cursosDestacados.forEach(curso => {
 
 */
 
-cursosDestacados.forEach(curso => {
+cursos.forEach(curso => {
 
     const hayNotasBajas = curso.estudiantes.some(
         estudiante => estudiante.calificacion < 4
     )
 
     if(hayNotasBajas){
-        console.log(
-            `⚠️ Atención: En el curso ${curso.nombreCurso} hay estudiantes con calificaciones muy bajas."
-        )
+        console.log(`⚠️ Atención: En el curso ${curso.nombre} hay estudiantes con calificaciones muy bajas.`)
     }
 })
