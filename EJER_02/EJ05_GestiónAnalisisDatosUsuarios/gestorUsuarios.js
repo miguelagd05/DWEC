@@ -6,7 +6,7 @@ export function crearPerfil(nombre,email,edad){
 
 function mostrarPerfil(usuario){
 
-return `Nombre: ${usuario.nombre} , Email:  ${usuario.email} , Edad: ${usuario.edad}`)
+return `Nombre: ${usuario.nombre} , Email:  ${usuario.email} , Edad: ${usuario.edad}`
 
 }
 
