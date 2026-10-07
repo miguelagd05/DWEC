@@ -61,7 +61,6 @@ export const ordenarPorPrecio = (catalogo, descendente = false) => {
 
   return resultado
 
-  // Tu código aquí
 };
 
 // 1.5 Devuelve los nombres de los tres productos más baratos.
@@ -83,7 +82,6 @@ export const buscarProducto = (catalogo, nombre) => {
   
  return catalogo.find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
   
-  // Tu código aquí
 };
 
 // 2.2 Devuelve true si existe un producto con ese nombre.
@@ -106,7 +104,7 @@ export const agotados = (catalogo) => {
   
   return catalogo
   .filter(producto => producto.stock === 0)
-    .map(producto => producto.nombre)
+  .map(producto => producto.nombre)
   }
 
 // 2.5 Devuelve los productos con precio entre minimo y maximo
