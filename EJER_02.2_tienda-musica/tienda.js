@@ -61,7 +61,6 @@ export const ordenarPorPrecio = (catalogo, descendente = false) => {
 
   return resultado
 
-  // Tu código aquí
 };
 
 // 1.5 Devuelve los nombres de los tres productos más baratos.
@@ -82,8 +81,7 @@ return ordenarPorPrecio(catalogo)
 export const buscarProducto = (catalogo, nombre) => {
   
  return catalogo.find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
-  
-  // Tu código aquí
+
 };
 
 // 2.2 Devuelve true si existe un producto con ese nombre.
