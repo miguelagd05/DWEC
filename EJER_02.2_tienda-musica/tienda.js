@@ -17,15 +17,15 @@
 //     Si lo que recibe no es un array, devuelve [].
 export const crearCatalogo = (matriz) => {
 
-  if(!Array.isArray(matriz)){
-    return []
+  if(!Array.isArray(matriz)){ //Comprueba que no sea un array
+    return [] //Si no lo es, devuelve una cadena vacia
   }
 
-    return matriz.map((fila) => ({
-      nombre: fila[0],
-      categoria: fila[1],
-      precio:fila[2],
-      stock:fila[3]
+    return matriz.map((fila) => ({ //Recorre cada fila y crea un objeto por cada una
+      nombre: fila[0], // La posicion 0 de la fila será el nombre
+      categoria: fila[1], //La segunda posición sera la categoría
+      precio:fila[2], // La tercera fila será para el precio
+      stock:fila[3] //La cuarta fila será para el stock
     }))
 };
 
@@ -33,9 +33,9 @@ export const crearCatalogo = (matriz) => {
 //     formato matriz) añadidas al final.
 export const ampliarCatalogo = (catalogo, matrizNovedades) => {
   
-const novedades = crearCatalogo(matrizNovedades)
+const novedades = crearCatalogo(matrizNovedades)  // Se crea un nuevo catálogo com las novedades
 
-return catalogo.concat(novedades)
+return catalogo.concat(novedades) //Esto suma el catalogo nuevo de novedades al catálogo
 
 };
 
@@ -44,9 +44,9 @@ return catalogo.concat(novedades)
 
 export const nombresOrdenados = (catalogo) => {
   
-  return catalogo
-  .map(producto => producto.nombre)
-  .sort((a,b) => a.localeCompare(b))
+  return catalogo // 
+  .map(producto => producto.nombre) //Esto saca los nombres de la 
+  .sort((a,b) => a.localeCompare(b)) // Esto lo pone en orden ascendente y compara las mayúsculas,tildes,etc
 };
 
 // 1.4 Devuelve una COPIA del catálogo ordenada por precio,
@@ -159,7 +159,7 @@ export const unidadesPorCategoria = (catalogo) => {
       resultado[producto.categoria] = 0
     }
 
-    resultado[producto.cateogria] += producto.stock
+    resultado[producto.categoria] += producto.stock
 
     return resultado
 
@@ -168,12 +168,12 @@ export const unidadesPorCategoria = (catalogo) => {
 
 // 3.4 Devuelve true si hay AL MENOS un producto agotado.
 export const hayAgotados = (catalogo) => {
-  // Tu código aquí
+  return catalogo.some(producto => producto.stock === 0)
 };
 
 // 3.5 Devuelve true si TODOS los precios son números mayores que 0.
 export const preciosValidos = (catalogo) => {
-  // Tu código aquí
+  return catalogo.every(producto => typeof producto.precio === "number" && producto.precio > 0)
 };
 
 // ================================================================
@@ -190,13 +190,33 @@ export const preciosValidos = (catalogo) => {
 //     }
 //     ¡Ojo! La cantidad debe ser un número, no un string.
 export const parsearPedido = (texto) => {
-  // Tu código aquí
+
+  const partes = texto.split('|')
+
+  const cliente = partes[0]
+
+  const lineas = partes[1].split(';').map((linea) => {
+    const[nombre,cantidad] = linea.split(':')
+  
+    return {
+
+      nombre:nombre,
+      cantidad: Number(cantidad)
+    }
+  })
+
+  return{
+    cliente,
+    lineas
+  }
 };
 
 // 4.2 Devuelve true si TODOS los productos del pedido existen
 //     y tienen stock suficiente.
 export const puedeServirse = (catalogo, pedido) => {
-  // Tu código aquí
+  
+return catalogo.every(producto => existeProducto(producto) =  "true" && producto.stock > 0)
+
 };
 
 // 4.3 Devuelve el importe total del pedido.
