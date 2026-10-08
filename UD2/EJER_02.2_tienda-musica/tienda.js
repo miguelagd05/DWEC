@@ -81,7 +81,11 @@ return ordenarPorPrecio(catalogo)
 export const buscarProducto = (catalogo, nombre) => {
   
  return catalogo.find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
+<<<<<<< HEAD:UD2/EJER_02.2_tienda-musica/tienda.js
   
+=======
+
+>>>>>>> 894f497af6111f947aa0113075b880480f8d9b24:EJER_02.2_tienda-musica/tienda.js
 };
 
 // 2.2 Devuelve true si existe un producto con ese nombre.
