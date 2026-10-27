@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería de imágenes</title>
+    <script src="script.js" defer></script>
+
+    
+<style>
+    .miniatura {
+        border: 3px solid transparent;
+        cursor: pointer;
+    }
+
+    .miniatura.activa {
+        border-color: blue;
+    }
+</style>
+
+</head>
+<body>
+
+    <h1>Galería de imágenes</h1>
+
+    <div>
+        <img id="imagen-principal"
+             src="https://picsum.photos/id/1015/600/350"
+             alt="Imagen principal"
+             width="400">
+
+        <div>
+            <img class="miniatura"
+                 src="https://picsum.photos/id/1015/600/350"
+                 alt="Montaña"
+                 width="100">
+
+            <img class="miniatura"
+                 src="https://picsum.photos/id/1016/600/350"
+                 alt="Bosque"
+                 width="100">
+
+            <img class="miniatura"
+                 src="https://picsum.photos/id/1018/600/350"
+                 alt="Paisaje"
+                 width="100">
+
+            <img class="miniatura"
+                 src="https://picsum.photos/id/1020/600/350"
+                 alt="Naturaleza"
+                 width="100">
+        </div>
+    </div>
+
+</body>
+</html>

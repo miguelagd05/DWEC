@@ -29,13 +29,13 @@
 
 // 5. Selecciona el formulario con id 'formulario-contacto'.
 (function() {
-  const formulario = document.getElementById('formulario-contacto');
-  console.log('Ejercicio 5:', formulario);
+  const formulario = document.getElementById("formulario-contacto")
+  console.log('Ejercicio 5:', formulario)
 })();
 
 // 6. Selecciona el párrafo que tiene el atributo 'data-precio'. Muestra su contenido en la consola.
 (function() {
-  const parrafoPrecio = document.querySelector('[data-precio]');
+  const parrafoPrecio = document.querySelector('[data-precio="20"]');
   if (parrafoPrecio) {
     console.log('Ejercicio 6:', parrafoPrecio.textContent);
   }
