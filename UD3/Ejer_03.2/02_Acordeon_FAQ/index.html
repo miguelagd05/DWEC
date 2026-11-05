@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acordeón FAQ</title>
+
+    <style>
+        .oculto {
+            display: none;
+        }
+
+        h2 {
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <h1>Preguntas frecuentes</h1>
+
+    <ul>
+        <li>
+            <h2 onclick="revelarRespuesta(this)">
+                ¿Qué es HTML?
+            </h2>
+            <p class="oculto">
+                HTML es un lenguaje que permite estructurar páginas web.
+            </p>
+        </li>
+
+        <li>
+            <h2 onclick="revelarRespuesta(this)">
+                ¿Qué es CSS?
+            </h2>
+            <p class="oculto">
+                CSS permite dar estilo y diseño a las páginas web.
+            </p>
+        </li>
+
+        <li>
+            <h2 onclick="revelarRespuesta(this)">
+                ¿Qué es JavaScript?
+            </h2>
+            <p class="oculto">
+                JavaScript permite añadir interactividad a las páginas web.
+            </p>
+        </li>
+    </ul>
+
+</body>
+</html>
