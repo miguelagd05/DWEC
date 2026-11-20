@@ -1,0 +1,95 @@
+
+<!-- CAMPO PARA BUSCAR UN PAÍS -->
+<input type="text" id="busqueda" placeholder="Buscar país">
+
+<button id="btn-buscar">Buscar</button>
+
+<!-- LISTA DE CIUDADES -->
+<ul id="lista-ciudades"></ul>
+
+// ================================================================
+// 1. CREAR ARRAY DE OBJETOS
+// ================================================================
+
+// Cada objeto tiene una ciudad y su país.
+const ciudades = [
+  { ciudad: 'Madrid', pais: 'España' },
+  { ciudad: 'París', pais: 'Francia' },
+  { ciudad: 'Barcelona', pais: 'España' },
+  { ciudad: 'Roma', pais: 'Italia' },
+  { ciudad: 'Lyon', pais: 'Francia' }
+];
+
+
+// ================================================================
+// 2. MOSTRAR LAS CIUDADES EN EL HTML
+// ================================================================
+
+const lista = document.getElementById('lista-ciudades');
+
+ciudades.forEach(function(elemento) {
+
+  // Creamos un li para cada ciudad.
+  const li = document.createElement('li');
+
+  // Guardamos el país en un atributo data-pais.
+  li.dataset.pais = elemento.pais;
+
+  // Escribimos la ciudad y el país.
+  li.textContent = elemento.ciudad + ' - ' + elemento.pais;
+
+  // Añadimos el li a la lista.
+  lista.appendChild(li);
+
+});
+
+
+// ================================================================
+// 3. FILTRAR CIUDADES POR PAÍS
+// ================================================================
+
+function filtrarCiudades(pais) {
+
+  // Seleccionamos todos los li.
+  const elementos = lista.querySelectorAll('li');
+
+  // Recorremos todas las ciudades.
+  elementos.forEach(function(elemento) {
+
+    // Obtenemos el país de cada ciudad.
+    const paisCiudad = elemento.dataset.pais;
+
+    // Comprobamos si coincide con el país buscado.
+    if (paisCiudad.toLowerCase().includes(pais.toLowerCase())) {
+
+      // Si coincide, mostramos el elemento.
+      elemento.style.display = '';
+
+    } else {
+
+      // Si no coincide, lo ocultamos.
+      elemento.style.display = 'none';
+
+    }
+
+  });
+
+}
+
+
+// ================================================================
+// 4. EJECUTAR LA BÚSQUEDA AL PULSAR EL BOTÓN
+// ================================================================
+
+const boton = document.getElementById('btn-buscar');
+const input = document.getElementById('busqueda');
+
+boton.addEventListener('click', function() {
+
+  // Recogemos el país escrito.
+  const pais = input.value.trim();
+
+  // Llamamos a la función de búsqueda.
+  filtrarCiudades(pais);
+
+});

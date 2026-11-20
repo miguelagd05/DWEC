@@ -1,0 +1,18 @@
+
+/* Estilos del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+/* Estilos de los mensajes */
+#informe-errores p {
+  color: red;
+}
+
+/* Mensaje de formulario válido */
+.valido {
+  color: green !important;
+}

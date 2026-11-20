@@ -1,0 +1,13 @@
+
+/* Elementos de la lista */
+#lista-tareas li {
+  margin: 10px;
+}
+
+/* Botón eliminar */
+#lista-tareas button {
+  margin-left: 10px;
+  color: white;
+  background-color: red;
+  cursor: pointer;
+}

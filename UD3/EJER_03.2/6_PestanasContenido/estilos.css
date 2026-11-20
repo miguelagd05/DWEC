@@ -1,0 +1,17 @@
+
+/* Ocultar contenidos */
+.oculto {
+  display: none;
+}
+
+/* Estilo de los botones */
+#botones-tabs button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Estilo del contenido */
+.contenido {
+  padding: 20px;
+  border: 1px solid black;
+}

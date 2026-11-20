@@ -4,7 +4,7 @@ const estudiantes = [
     {
         nombre : "Chema",
         apellidos: "Trabadelo Fernández",
-        calificacion : 4,
+        calificacion : 8,
         aprobado: true
 },
 

@@ -1,0 +1,9 @@
+
+#lista li {
+  margin: 10px;
+}
+
+#btn-ordenar {
+  padding: 10px;
+  cursor: pointer;
+}

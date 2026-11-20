@@ -1,0 +1,17 @@
+
+/* Ocultar las respuestas */
+.oculto {
+  display: none;
+}
+
+/* Dar aspecto de pregunta */
+.faq h2 {
+  cursor: pointer;
+  background-color: #eeeeee;
+  padding: 10px;
+}
+
+/* Estilo de las respuestas */
+.faq p {
+  padding: 10px;
+}
