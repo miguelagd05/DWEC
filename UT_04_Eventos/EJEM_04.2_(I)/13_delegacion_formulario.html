@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Delegar focusout en un formulario</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+input { display: block; margin: 8px 0; padding: 6px; }
+  </style>
+</head>
+<body>
+<h2>Delegar focusout en un formulario</h2>
+<form id="registro">
+  <input type="text" name="usuario" placeholder="Usuario" required minlength="3">
+  <input type="email" name="correo" placeholder="Correo" required>
+</form>
+<p class="nota">Abre la consola del navegador (F12) para ver los resultados.</p>
+<script type="module">
+const formulario = document.getElementById('registro');
+
+// Un único escuchador valida cualquier campo cuando el usuario lo abandona
+formulario.addEventListener('focusout', (evento) => {
+  const campo = evento.target;
+  if (campo.matches('input')) {
+    console.log(`${campo.name}: ${campo.validity.valid ? 'válido' : 'no válido'}`);
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>target y currentTarget</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+
+  </style>
+</head>
+<body>
+<h2>target y currentTarget</h2>
+<ul id="tareas">
+  <li>Estudiar eventos <button class="borrar">Borrar</button></li>
+  <li>Hacer el ejercicio <button class="borrar">Borrar</button></li>
+</ul>
+<button id="agregar">Añadir tarea</button>
+<p class="nota">Abre la consola del navegador (F12) para ver los resultados.</p>
+<script type="module">
+// Paso 1: el ancestro común (existe desde el principio y no se elimina)
+const lista = document.getElementById('tareas');
+
+// Paso 2: un único escuchador en él
+lista.addEventListener('click', (evento) => {
+  // Paso 3: ¿quién originó el evento?
+  console.log(evento.target);        // el elemento pulsado: <button>, <li> o <ul>
+  console.log(evento.currentTarget); // el elemento que tiene el escuchador: siempre <ul>
+});
+</script>
+</body>
+</html>

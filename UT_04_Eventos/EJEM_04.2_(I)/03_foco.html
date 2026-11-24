@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>focusin y focusout</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+input { display: block; margin: 8px 0; padding: 6px; }
+.activo { outline: 3px solid orange; }
+  </style>
+</head>
+<body>
+<h2>focusin y focusout</h2>
+<form id="registro">
+  <input type="text" name="usuario" placeholder="Usuario">
+  <input type="email" name="correo" placeholder="Correo">
+</form>
+<script type="module">
+const formulario = document.getElementById('registro');
+
+// focusin y focusout burbujean: basta un único escuchador en el formulario
+formulario.addEventListener('focusin', (evento) => {
+  evento.target.classList.add('activo');
+});
+formulario.addEventListener('focusout', (evento) => {
+  evento.target.classList.remove('activo');
+});
+</script>
+</body>
+</html>

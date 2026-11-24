@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Varias acciones con data-accion</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+.hecha { text-decoration: line-through; color: #888; }
+  </style>
+</head>
+<body>
+<h2>Varias acciones con data-accion</h2>
+<ul id="tareas">
+  <li>Estudiar eventos
+    <button data-accion="completar">Hecha</button>
+    <button data-accion="borrar">Borrar</button>
+  </li>
+</ul>
+<script type="module">
+const lista = document.getElementById('tareas');
+
+// Cada acción es una función; el nombre coincide con el valor de data-accion
+const acciones = {
+  completar: (tarea) => tarea.classList.toggle('hecha'),
+  borrar: (tarea) => tarea.remove(),
+};
+
+lista.addEventListener('click', (evento) => {
+  const boton = evento.target.closest('button[data-accion]');
+  if (!boton || !lista.contains(boton)) return;
+
+  const accion = acciones[boton.dataset.accion]; // dataset.accion lee data-accion
+  if (accion) accion(boton.closest('li'));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>input, change y submit</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 24px;
+      max-width: 520px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=number],
+    textarea,
+    select {
+      padding: 6px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 6px 14px;
+    }
+
+    .nota {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>input, change y submit</h2>
+  <form id="contacto">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+    <button type="submit">Enviar</button>
+  </form>
+  <p class="nota">Abre la consola del navegador (F12) para ver los resultados.</p>
+  <script type="module">
+    const formulario = document.getElementById('contacto');
+    const campoNombre = document.getElementById('nombre');
+
+    // input: con cada modificación (cada tecla, al pegar, al borrar...)
+    campoNombre.addEventListener('input', (evento) => {
+      console.log(`Escribiendo: ${evento.target.value}`);
+    });
+
+    // change: cuando el valor se confirma (al perder el foco o pulsar Intro)
+    campoNombre.addEventListener('change', (evento) => {
+      console.log(`Valor confirmado: ${evento.target.value}`);
+    });
+
+    // submit: se escucha en el <form>, no en el botón
+    formulario.addEventListener('submit', (evento) => {
+      evento.preventDefault(); // evita el envío y la recarga de la página
+      const datos = Object.fromEntries(new FormData(formulario));
+      console.log(datos);            // { nombre: 'Ana' }
+      console.log(evento.submitter); // el <button> que provocó el envío
+    });
+  </script>
+</body>
+
+</html>

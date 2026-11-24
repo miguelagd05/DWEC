@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Propiedades de un formulario</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+
+  </style>
+</head>
+<body>
+<h2>Propiedades de un formulario</h2>
+<form id="acceso" name="acceso" method="post" action="acceso.html">
+  <div>
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" placeholder="Usuario">
+  </div>
+  <div>
+    <label for="clave">Contraseña:</label>
+    <input type="password" id="clave" name="clave" placeholder="Contraseña">
+  </div>
+  <div>
+    <label>
+      <input type="checkbox" id="recordar" name="recordar" value="on">
+      Recordarme en este equipo
+    </label>
+  </div>
+  <button type="submit" id="entrar">Entrar</button>
+</form>
+<p class="nota">Abre la consola del navegador (F12) para ver los resultados.</p>
+<script type="module">
+const formulario = document.getElementById('acceso');
+console.log(formulario.elements); // controles del formulario (apartado 3.2)
+console.log(formulario.length);   // 4 controles: 3 campos y 1 botón
+console.log(formulario.name);     // «acceso»
+console.log(formulario.action);   // URL completa del atributo action
+console.log(formulario.method);   // «post»
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Delegación de eventos: la solución</title>
+  <style>
+body { font-family: Arial, sans-serif; margin: 24px; max-width: 520px; }
+label { display: block; margin-top: 10px; }
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number], textarea, select { padding: 6px; width: 100%; box-sizing: border-box; }
+button { margin-top: 12px; padding: 6px 14px; }
+.nota { color: #666; font-size: 14px; }
+
+  </style>
+</head>
+<body>
+<h2>Delegación de eventos: la solución</h2>
+<ul id="tareas">
+  <li>Estudiar eventos <button class="borrar">Borrar</button></li>
+  <li>Hacer el ejercicio <button class="borrar">Borrar</button></li>
+</ul>
+<button id="agregar">Añadir tarea</button>
+<script type="module">
+const lista = document.getElementById('tareas');
+
+// Un único escuchador atiende a todos los botones, presentes y futuros
+lista.addEventListener('click', (evento) => {
+  const boton = evento.target.closest('.borrar');
+  if (!boton || !lista.contains(boton)) return;
+  boton.closest('li').remove();
+});
+
+// Las tareas nuevas funcionan sin registrar nada más
+document.getElementById('agregar').addEventListener('click', () => {
+  const tarea = document.createElement('li');
+  tarea.innerHTML = 'Nueva tarea <button class="borrar">Borrar</button>';
+  lista.append(tarea);
+});
+</script>
+</body>
+</html>
