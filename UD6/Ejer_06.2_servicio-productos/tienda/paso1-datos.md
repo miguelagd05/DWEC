@@ -4,7 +4,7 @@
 |    id    |entero |    2      |         >0           |
 |  nombre  |string |   Ratón   |      obligatorio     |
 |categoria |string |Periféricos|      obligatorio     |
-|  precio  |decimal|   24.5    |         >0           |
+|  precio  |decimal|   24.5    |         >=0           |
 |   stock  |entero |    0      |         >=0          |
 | enOferta |boolean|   true    |  solo true o false   |
 -------------------------------------------------------
